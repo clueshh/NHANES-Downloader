@@ -1,0 +1,2 @@
+from pipelines.DownloaderPipeline import DownloaderPipeline
+from pipelines.JSONPipeline import JSONPipeline
