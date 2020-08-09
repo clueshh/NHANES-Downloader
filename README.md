@@ -32,7 +32,7 @@ The .XPT files are downloaded into the directories below with associated metadat
 
 ## Usage
 
-```shell script
+```bash
 git clone https://github.com/clueshh/NHANES-Downloader.git
 cd NHANES-Downloader
 pip install -r requirements.txt
