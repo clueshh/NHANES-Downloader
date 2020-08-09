@@ -1,6 +1,9 @@
 # NHANES-DOWNLOADER
 
-A scrapy web crawler that scrapes and downloads all the NHANES data into a directory with the structure.
+A [Scrapy](https://scrapy.org/) web crawler that parses and downloads all the
+[NHANES](https://www.cdc.gov/nchs/nhanes/index.htm) data. 
+
+The .XPT files are downloaded into the directories below with associated metadata stored in a .JSON file.
 
 ```
 ├───Demographics
@@ -30,7 +33,7 @@ A scrapy web crawler that scrapes and downloads all the NHANES data into a direc
 ## Usage
 
 ```shell script
-git clone 
+git clone https://github.com/clueshh/NHANES-Downloader.git
 cd NHANES-Downloader
 pip install -r requirements.txt
 python main.py
