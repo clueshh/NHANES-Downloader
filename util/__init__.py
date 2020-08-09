@@ -1,1 +1,1 @@
-from util.util import get_file_path
+from util.util import get_file_path, get_component

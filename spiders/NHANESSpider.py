@@ -1,16 +1,9 @@
 import scrapy
 from scrapy.loader import ItemLoader
 
-import urllib.parse
-
+from util import get_component
 from items import NHANESDownloaderItem
-
-start_urls = ['http://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Demographics',
-              'http://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Dietary',
-              'http://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Examination',
-              'http://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Laboratory',
-              'http://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Questionnaire',
-              'http://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Non-Public']
+from spiders.start_urls import start_urls
 
 
 class NHANESSpider(scrapy.Spider):
@@ -24,9 +17,7 @@ class NHANESSpider(scrapy.Spider):
     }
 
     def parse(self, response):
-        url = response.url
-        parsed = urllib.parse.urlparse(url)
-        component = urllib.parse.parse_qs(parsed.query).get('Component')[0]
+        component = get_component(response.url)
 
         table_rows = response.css('table#GridView1 tr')
 

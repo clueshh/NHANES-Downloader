@@ -1,9 +1,8 @@
 import scrapy
 
-import urllib.parse
-
-from spiders.NHANESSpider import start_urls
+from util import get_component
 from items import NHANESDescriptor
+from spiders.start_urls import start_urls
 
 
 class JSONSpider(scrapy.Spider):
@@ -17,9 +16,7 @@ class JSONSpider(scrapy.Spider):
     }
 
     def parse(self, response):
-        url = response.url
-        parsed = urllib.parse.urlparse(url)
-        component = urllib.parse.parse_qs(parsed.query).get('Component')[0]
+        component = get_component(response.url)
 
         table_rows = response.css('table#GridView1 tr')
 
