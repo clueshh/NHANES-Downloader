@@ -32,7 +32,7 @@ class JSONSpider(scrapy.Spider):
     @staticmethod
     def parse_htm(response, component):
         div_text = response.css('#CodebookLinks a::text').extract()
-        labels = [value.split(' - ', 1) for value in div_text]
+        labels = [value.strip().split(' - ', 1) for value in div_text]
 
         item = NHANESDescriptor()
         item['component'] = component
